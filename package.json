@@ -1,0 +1,43 @@
+{
+  "name": "@imogen/shared",
+  "version": "0.5.1",
+  "type": "module",
+  "description": "The imogen API contract: zod schemas and types shared by the server and every client",
+  "license": "AGPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ergofobe/imogen-sdk.git",
+    "directory": "typescript/packages/shared"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "bun": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "!dist/.tsbuildinfo",
+    "src",
+    "!src/**/*.test.ts",
+    "README.md"
+  ],
+  "keywords": [
+    "imogen",
+    "photos",
+    "api-contract",
+    "zod"
+  ],
+  "scripts": {
+    "build": "tsc -b tsconfig.build.json",
+    "prepack": "bun run build --force",
+    "typecheck": "tsc -p tsconfig.json",
+    "npm-publish": "npm publish --access public"
+  },
+  "dependencies": {
+    "zod": "^4.1.5"
+  }
+}
